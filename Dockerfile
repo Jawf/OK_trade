@@ -15,6 +15,7 @@ RUN virtualenv -p /usr/bin/python3.5 py35env
 #使用bash命令集
 
 RUN ["/bin/bash","-c","source py35env/bin/activate"]
+RUN ["/bin/bash","-c","which python"]
 
 
 RUN  mkdir -p /app
