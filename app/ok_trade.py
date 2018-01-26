@@ -81,6 +81,7 @@ class OK_MAKER:
         result={}
         result['status']=False
         hold = self._OKServices.get_future_position(symbol,contract_type)
+        print(hold)
         if hold:
             result['buy_amount'] = hold['holding'][0]['buy_amount']
             result['buy_available']=hold['holding'][0]['buy_available']
@@ -366,14 +367,14 @@ class OK_MAKER:
         return_data = {}
         signal = self.get_trade_signal(symbol, period, size, contract_type)  # 获取行情交易信号
         if signal['status']:#获取到交易信号
-            pc_order = self.send_pc_orders(symbol, signal)  #处理平仓
+            #pc_order = self.send_pc_orders(symbol, signal)  #处理平仓
+            #if pc_order:
+                #print("平仓订单:%s"%pc_order)
+            #kc_order = self.send_kc_orders(symbol, signal)  #处理开仓#
+            #if kc_order:
+                #print("平仓订单:%s"%kc_order)
 
-            if pc_order:
-                print("平仓订单:%s"%pc_order)
-
-            kc_order = self.send_kc_orders(symbol, signal)  #处理开仓#
-            if kc_order:
-                print("平仓订单:%s"%kc_order)
+            print(signal)
 
         return return_data
 
